@@ -10,9 +10,19 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("wt05Controllers.controller.View1", {
+		//onInit is cimilar to a constructor function of a control
 		onInit : function () {
-		
+		// wt07, jsonmodel, set data model on view
+		// set during onInit
+		var oData = {
+			recipient : { 
+				name : "World xcy"
+			}
+		};
+		var oModel = new JSONModel(oData);
+		this.getView().setModel(oModel);
 		},
+		
 		onShowHello : function () {
 			/* wt05 - Controllers
 			//show a native JS alert
@@ -21,9 +31,8 @@ sap.ui.define([
 			
 			/*wt06, after add MessageToast in 1.define 2.function;
 			now it could be used below
-			MessageToast.show("Hello world");
 			*/
-			
+			MessageToast.show("Hello world");
 			// wt07, JSONmodel
 			
 		}
