@@ -1,0 +1,5 @@
+<mvc:View controllerName="wt05Controllers.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+<Text id = "text002" text = "Hello world!" />
+<Button id = "button001" text = "Hello World" press = "onShowHello" />
+</mvc:View>
