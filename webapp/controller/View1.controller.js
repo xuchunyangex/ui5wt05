@@ -12,13 +12,14 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("wt05Controllers.controller.View1", {
+    	/*in wt09, the model 
         //onInit is cimilar to a constructor function of a control
         onInit: function() {
             // wt07, jsonmodel, set data model on view
             // set during onInit
             var oData = {
                 recipient: {
-                    name: "Hello World One"
+                    name: "World_wt08 One"
                 }
             };
             var oModel = new JSONModel(oData);
@@ -32,6 +33,7 @@ sap.ui.define([
             //setModel(oModel, sName?)Sets or unsets a model for the given model name for this ManagedObject.
             this.getView().setModel(i18nModel, "i18n");
         },
+        */
 
         onShowHello: function() {
             /* wt05 - Controllers

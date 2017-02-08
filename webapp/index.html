@@ -19,8 +19,11 @@
 
 		<script>
 			sap.ui.getCore().attachInit(function() {
-				new sap.ui.xmlview({
-				viewName : "wt05Controllers.view.View1" ,
+				// new sap.ui.xmlview({
+				// viewName : "wt05Controllers.view.View1" ,
+				// }).placeAt("content");
+				new sap.ui.core.ComponentContainer({
+					name : "wt05Controllers"
 				}).placeAt("content");
 			});
 		</script>
