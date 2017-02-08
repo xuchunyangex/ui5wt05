@@ -1,6 +1,8 @@
 <mvc:View controllerName="wt05Controllers.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true" xmlns="sap.m">
 	<Text id="text002" text="Hello world!"/>
-	<Button id="button001" text="Hello World" press="onShowHello"/>
-	<Input id="input001" value="{/recipient/name}" description="Hello {/recipient/name}" valueLiveUpdate="true" width="200%"/>
+	<!--wt08 - A resource bundle is a flat structure, therefore the preceding slash (/) can be omitted for the path-->
+	<Button id="button001" text="{i18n>showHelloButtonText}" press="onShowHello"/>
+	<!-- binding "recip" is the name of model, after ">/", then is the json model -->
+	<Input id="input001" value="{recip>/recipient/name}" description="Hello {recip>/recipient/name}" valueLiveUpdate="true" width="60%"/>
 </mvc:View>
