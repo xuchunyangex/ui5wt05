@@ -5,16 +5,18 @@ sap.ui.define([
     "wt05Controllers/model/models",
     //wt09 component configuration, and add these two to function arguments
     "sap/ui/model/json/JSONModel",
-    "sap/ui/model/resource/ResourceModel"
-], function(UIComponent, Device, models, JSONModel, ResourceModel) {
+    // "sap/ui/model/resource/ResourceModel"
+    // ], function(UIComponent, Device, models, JSONModel, ResourceModel) {
+], function(UIComponent, Device, models, JSONModel) {
     "use strict";
 
     return UIComponent.extend("wt05Controllers.Component", {
-
+        //wt09 Component metadata: here it define a reference to the root view 
         metadata: {
-            // manifest: "json"
-            //wt09 component configuration
-            rootView: "wt05Controllers.view.View1"
+            //wt10 descriptor
+            manifest : "json"
+                // //wt09 component configuration
+                // rootView: "wt05Controllers.view.View1"
         },
 
         /**
@@ -37,11 +39,13 @@ sap.ui.define([
             };
             var oModel = new JSONModel(oData);
             this.setModel(oModel, "recip");
-            //wt09 set i18n model
-            var i18nModel = new ResourceModel({
-                bundleName: "wt05Controllers.i18n.i18n"
-            });
-            this.setModel(i18nModel, "i18n");
+
+            // wt10 no need to instantiate resource bundle i18n as it is done in manifest.json
+            // // wt09 set i18n model
+            // var i18nModel = new ResourceModel({
+            //     bundleName: "wt05Controllers.i18n.i18n"
+            // });
+            // this.setModel(i18nModel, "i18n");
 
         }
     });
