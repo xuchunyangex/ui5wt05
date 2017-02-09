@@ -2,9 +2,9 @@
     <App>
         <!-- pages aggregation is from sap.m.NavContainer (father of App) -->
         <pages>
-            <page title="{i18n>homePageTitle}">
+            <Page title="{i18n>homePageTitle}">
                 <content>
-                    <Panel title="{i18n>homePanelTitle}">
+                    <Panel headerText="{i18n>homePanelTitle}">
                         <content>
                             <!--wt08 - A resource bundle is a flat structure, therefore the preceding slash (/) can be omitted for the path-->
                             <Button id="button001" text="{i18n>showHelloButtonText}" press="onShowHello" />
@@ -13,7 +13,7 @@
                         </content>
                     </Panel>
                 </content>
-            </page>
+            </Page>
         </pages>
     </App>
 </mvc:View>
