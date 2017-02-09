@@ -1,8 +1,19 @@
-<mvc:View controllerName="wt05Controllers.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true" xmlns="sap.m">
-	<Text id="text002" text="Hello world!"/>
-	<!--wt08 - A resource bundle is a flat structure, therefore the preceding slash (/) can be omitted for the path-->
-	<Button id="button001" text="{i18n>showHelloButtonText}" press="onShowHello"/>
-	<!-- binding "recip" is the name of model, after ">/", then is the json model -->
-	<Input id="input001" value="{recip>/recipient/name}" description="Hello {recip>/recipient/name}" valueLiveUpdate="true" width="60%"/>
+<mvc:View controllerName="wt05Controllers.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <App>
+        <!-- pages aggregation is from sap.m.NavContainer (father of App) -->
+        <pages>
+            <page title="{i18n>homePageTitle}">
+                <content>
+                    <Panel title="{i18n>homePanelTitle}">
+                        <content>
+                            <!--wt08 - A resource bundle is a flat structure, therefore the preceding slash (/) can be omitted for the path-->
+                            <Button id="button001" text="{i18n>showHelloButtonText}" press="onShowHello" />
+                            <!-- binding "recip" is the name of model, after ">/", then is the json model -->
+                            <Input id="input001" value="{recip>/recipient/name}" description="Hello {recip>/recipient/name}" valueLiveUpdate="true" width="60%" />
+                        </content>
+                    </Panel>
+                </content>
+            </page>
+        </pages>
+    </App>
 </mvc:View>
