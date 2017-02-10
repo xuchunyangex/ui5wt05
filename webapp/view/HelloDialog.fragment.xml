@@ -1,0 +1,4 @@
+<!-- wt16 use fragment for dialog -->
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+    <Dialog id="helloDialog" title="wt16 hello {recip>/recipient/name}"> </Dialog>
+</core:FragmentDefinition>

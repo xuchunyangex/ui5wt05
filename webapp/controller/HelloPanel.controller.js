@@ -16,6 +16,24 @@ sap.ui.define([
             var sMsg = oBundle.getText("helloMsg", [sRecipient0, sRecipient1, sRecipient2]);
             MessageToast.show(sMsg);
 
+        },
+
+// wt16 dialog with fragment
+        onOpenDialog : function () {
+        	var oView = this.getView();
+        	var oDialog = oView.byId("helloDialog");
+        	//create dialog lazily
+        	if (!oDialog) {
+        		//create dialog via fragment factory
+        		//here ID of the fragment "helloDialog" = oView.getId() .
+        		// oDialog = sap.ui.xmlfragment("helloDialog", "wt05Controllers.view.HelloDialog", this);
+        		// oDialog = sap.ui.xmlfragment("wt05Controllers.view.HelloDialog", this);
+        		oDialog = sap.ui.xmlfragment(oView.getId(), "wt05Controllers.view.HelloDialog", this);
+        		oView.addDependent(oDialog);
+        	}
+
+        	oDialog.open();
+
         }
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
