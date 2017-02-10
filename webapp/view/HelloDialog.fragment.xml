@@ -1,4 +1,8 @@
 <!-- wt16 use fragment for dialog -->
 <core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
-    <Dialog id="helloDialog" title="wt16 hello {recip>/recipient/name}"> </Dialog>
+    <Dialog id="helloDialog" title="wt16 hello {recip>/recipient/name}"> 
+<beginButton>
+	<Button id="closeDialog" text="{i18n>dialogCloseButtonText}" press="onCloseDialog" >  </Button>
+	</beginButton> 
+    </Dialog>
 </core:FragmentDefinition>
