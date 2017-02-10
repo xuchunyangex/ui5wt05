@@ -38,7 +38,9 @@ sap.ui.define([
 
         //wt17 fragment callbacks
         onCloseDialog: function() {
-            this.getView().byId("helloDialog").close();
+            // this.getView().byId("helloDialog").close();
+            var oView1 = this.getView();
+            oView1.byId("helloDialog").close();
         }
 
         /**

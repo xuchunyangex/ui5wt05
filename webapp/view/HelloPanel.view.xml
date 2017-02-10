@@ -10,7 +10,7 @@
     <Panel headerText="{i18n>homePanelTitle}" class="sapUiResponsiveMargin" width="auto">
         <content>
             <!--wt16 dialog and fragment-->
-            <Button id="button002" text="{i18n>openDialogButtonText}" press="onOpenDialog" class="sapUiSmallMarginEnd" />
+            <Button id="button002" icon="sap-icon://world" text="{i18n>openDialogButtonText}" press="onOpenDialog" class="sapUiSmallMarginEnd" />
             <!--wt08 - A resource bundle is a flat structure, therefore the preceding slash (/) can be omitted for the path-->
             <Button id="button001" text="{i18n>showHelloButtonText}" press="onShowHello" class="myCustomButton" />
             <!-- binding "recip" is the name of model, after ">/", then is the json model -->
