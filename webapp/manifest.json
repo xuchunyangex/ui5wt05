@@ -44,7 +44,7 @@
     "sap.ui5": {
         "_version": "1.1.0",
         "rootView": {
-            "viewName": "wt05Controllers.view.View1",
+            "viewName": "wt05Controllers.view.App",
             "type": "XML"
         },
         "dependencies": {

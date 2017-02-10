@@ -11,7 +11,7 @@ sap.ui.define([
 ], function(Controller, MessageToast, JSONModel, ResourceModel) {
     "use strict";
 
-    return Controller.extend("wt05Controllers.controller.View1", {
+    return Controller.extend("wt05Controllers.controller.App", {
     	/*in wt09, the model 
         //onInit is cimilar to a constructor function of a control
         onInit: function() {

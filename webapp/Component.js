@@ -16,7 +16,7 @@ sap.ui.define([
             //wt10 descriptor
             manifest : "json"
                 // //wt09 component configuration
-                // rootView: "wt05Controllers.view.View1"
+                // rootView: "wt05Controllers.view.App"
         },
 
         /**
