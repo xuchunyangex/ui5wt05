@@ -22,9 +22,18 @@
 				// new sap.ui.xmlview({
 				// viewName : "wt05Controllers.view.View1" ,
 				// }).placeAt("content");
-				new sap.ui.core.ComponentContainer({
-					name : "wt05Controllers"
-				}).placeAt("content");
+
+				//wt12 shell control as container
+				new sap.m.Shell({
+					app : new sap.ui.core.ComponentContainer({
+					name : "wt05Controllers", //wt09 Container name should be namespace of application
+					height : "100%"
+
+				}),
+					showLogout : true
+
+				})
+				.placeAt("content");
 			});
 		</script>
 	</head>
