@@ -4,17 +4,7 @@
         <pages>
             <Page title="{i18n>homePageTitle}">
                 <content>
-                    <!-- wt13 Margins and paddings-->
-                    <Panel headerText="{i18n>homePanelTitle}" class="sapUiResponsiveMargin" width="auto">
-                        <content>
-                            <!--wt08 - A resource bundle is a flat structure, therefore the preceding slash (/) can be omitted for the path-->
-                            <Button id="button001" text="{i18n>showHelloButtonText}" press="onShowHello" class="myCustomButton"/>
-                            <!-- binding "recip" is the name of model, after ">/", then is the json model -->
-                            <Input id="input001" value="{recip>/recipient/name}" valueLiveUpdate="true" width="60%" />
-                            <!-- wt13 - add text control with margin -->
-                            <Text id="text001" text="wt13 Hello {recip>/recipient/name}" class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText" />
-                        </content>
-                    </Panel>
+                    <mvc:XMLView viewName="wt05Controllers.view.HelloPanel" />
                 </content>
             </Page>
         </pages>

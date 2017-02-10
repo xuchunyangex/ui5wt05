@@ -1,0 +1,24 @@
+<!-- wt15 nested views, create new view under app -->
+<!-- this view only contains panel which belongs to app pages -->
+<mvc:View controllerName="wt05Controllers.controller.HelloPanel" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+    <!--     <App class="myAppDemoWT">
+        pages aggregation is from sap.m.NavContainer (father of App)
+        <pages>
+            <Page title="{i18n>homePageTitle}">
+                <content> -->
+    <!-- wt13 Margins and paddings-->
+    <Panel headerText="{i18n>homePanelTitle}" class="sapUiResponsiveMargin" width="auto">
+        <content>
+            <!--wt08 - A resource bundle is a flat structure, therefore the preceding slash (/) can be omitted for the path-->
+            <Button id="button001" text="{i18n>showHelloButtonText}" press="onShowHello" class="myCustomButton" />
+            <!-- binding "recip" is the name of model, after ">/", then is the json model -->
+            <Input id="input001" value="{recip>/recipient/name}" valueLiveUpdate="true" width="60%" />
+            <!-- wt13 - add text control with margin -->
+            <Text id="text001" text="wt13 Hello {recip>/recipient/name}" class="sapUiSmallMargin sapThemeHighlight-asColor myCustomText" />
+        </content>
+    </Panel>
+    <!--                 </content>
+            </Page>
+        </pages>
+    </App> -->
+</mvc:View>
