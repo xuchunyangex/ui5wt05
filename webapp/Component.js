@@ -3,18 +3,20 @@ sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/Device",
     "wt05Controllers/model/models",
+    //wt19 reusable dialog
+    "wt05Controllers/controller/HelloDialog",
     //wt09 component configuration, and add these two to function arguments
     "sap/ui/model/json/JSONModel",
     // "sap/ui/model/resource/ResourceModel"
     // ], function(UIComponent, Device, models, JSONModel, ResourceModel) {
-], function(UIComponent, Device, models, JSONModel) {
+], function(UIComponent, Device, models, HelloDialog, JSONModel) {
     "use strict";
 
     return UIComponent.extend("wt05Controllers.Component", {
         //wt09 Component metadata: here it define a reference to the root view 
         metadata: {
             //wt10 descriptor
-            manifest : "json"
+            manifest: "json"
                 // //wt09 component configuration
                 // rootView: "wt05Controllers.view.App"
         },
@@ -39,6 +41,11 @@ sap.ui.define([
             };
             var oModel = new JSONModel(oData);
             this.setModel(oModel, "recip");
+
+            //wt19 reusable dialog
+            //The dialog instantiation is refactored to a new helper object which is stored in a private property of the component
+            //actually there is no aggregation rootControl, but it will be created
+            this._helloDialog = new HelloDialog(this.getAggregation("rootControl"));
 
             // wt10 no need to instantiate resource bundle i18n as it is done in manifest.json
             // // wt09 set i18n model
