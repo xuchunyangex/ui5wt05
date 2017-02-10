@@ -1,1 +1,18 @@
-/* Enter your custom styles here */
+/* wt14 custom CSS and theme color*/
+/*We add the CSS class sapMBtn to make our selector more specific: 
+	in CSS, the rule with the most specific selector "wins".*/
+.myAppDemoWT .myCustomButton.sapMBtn {
+  margin-right: 2px
+}
+
+/*For right-to-left (rtl) languages, like Arabic, you set the left margin and reset the right margin as the app display is inverted. 
+If you only use standard SAPUI5 controls, you don't need to care about this, 
+in this case where we use custom CSS, you have to add this information.*/
+html[dir="rtl"] .myAppDemoWT .myCustomButton.sapMBtn {
+  margin-left: 2px;
+  margin-right: 0 
+}
+
+.myAppDemoWT .myCustomText {
+  font-weight: bold;
+}
