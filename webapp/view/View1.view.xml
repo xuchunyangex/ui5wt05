@@ -4,12 +4,15 @@
         <pages>
             <Page title="{i18n>homePageTitle}">
                 <content>
-                    <Panel headerText="{i18n>homePanelTitle}">
+                    <!-- wt13 Margins and paddings-->
+                    <Panel headerText="{i18n>homePanelTitle}" class="sapUiResponsiveMargin" width="auto">
                         <content>
                             <!--wt08 - A resource bundle is a flat structure, therefore the preceding slash (/) can be omitted for the path-->
                             <Button id="button001" text="{i18n>showHelloButtonText}" press="onShowHello" />
                             <!-- binding "recip" is the name of model, after ">/", then is the json model -->
-                            <Input id="input001" value="{recip>/recipient/name}" description="Hello {recip>/recipient/name}" valueLiveUpdate="true" width="60%" />
+                            <Input id="input001" value="{recip>/recipient/name}" valueLiveUpdate="true" width="60%" />
+                            <!-- wt13 - add text control with margin -->
+                            <Text id="text001" text="wt13 Hello {recip>/recipient/name}" class="sapUiSmallMargin" />
                         </content>
                     </Panel>
                 </content>
