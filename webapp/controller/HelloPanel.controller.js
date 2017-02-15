@@ -17,7 +17,7 @@ sap.ui.define([
             MessageToast.show(sMsg);
 
         },
-
+        /*wt19 - not necessary anymore, as reusable dialog is used
         // wt16 dialog with fragment
         onOpenDialog: function() {
             var oView = this.getView();
@@ -41,6 +41,11 @@ sap.ui.define([
             // this.getView().byId("helloDialog").close();
             var oView1 = this.getView();
             oView1.byId("helloDialog").close();
+        }
+        */
+        //wt19
+        onOpenDialog : function () {
+            this.getOwnerComponent().openHelloDialog();
         }
 
         /**

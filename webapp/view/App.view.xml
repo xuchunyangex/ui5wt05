@@ -3,6 +3,9 @@
         <!-- pages aggregation is from sap.m.NavContainer (father of App) -->
         <pages>
             <Page title="{i18n>homePageTitle}">
+                <headerContent>
+                    <Button icon="sap-icon://hello-world" press="onOpenDialog" />
+                  </headerContent>
                 <content>
                     <mvc:XMLView viewName="wt05Controllers.view.HelloPanel" />
                 </content>

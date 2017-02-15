@@ -43,10 +43,8 @@ sap.ui.define([
             this.setModel(oModel, "recip");
 
             //wt19 reusable dialog
-            //The dialog instantiation is refactored to a new helper object which is stored in a private property of the component
-            //actually there is no aggregation rootControl, but it will be created
+            //the dialog instantiation is in a private property of the component: _helloDialog
             this._helloDialog = new HelloDialog(this.getAggregation("rootControl"));
-
             // wt10 no need to instantiate resource bundle i18n as it is done in manifest.json
             // // wt09 set i18n model
             // var i18nModel = new ResourceModel({
@@ -54,6 +52,14 @@ sap.ui.define([
             // });
             // this.setModel(i18nModel, "i18n");
 
+        },
+
+        //wt19 
+        openHelloDialog : function () {
+            this._helloDialog.open();
         }
+
+
+
     });
 });

@@ -12,7 +12,10 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("wt05Controllers.controller.App", {
-
+        //wt19 reusable dialog
+        onOpenDialog : function () {
+            this.getOwnerComponent().openHelloDialog();
+        }
     });
 
 });
