@@ -1,11 +1,13 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
-], function(Controller, JSONModel) {
+    "sap/ui/model/json/JSONModel",
+    "../model/formatter"
+], function(Controller, JSONModel, formatter) {
     "use strict";
 
     return Controller.extend("wt05Controllers.controller.InvoiceList", {
-
+    	//wt23, custom formatter, define a function property, no arguments 
+    	formatter1: formatter,
         /**
          * Called when a controller is instantiated and its View controls (if available) are already created.
          * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
