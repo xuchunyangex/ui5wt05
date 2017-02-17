@@ -2,14 +2,14 @@
     <!-- wt20 aggregation binding 
 	in the "items"  aggregation, we define the template for the list that will be automatically repeated for each invoice
 	of our test data with "items="{xxx}"" -->
-    <List id="invoiceList" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto" items="{invoice>/Invoices}">
+    <List id="invoiceList" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto" items="{path: 'invoice>/Invoices', sorter: {path: 'ProductName', descending: 'true'}}">
         <!-- wt24 filtering -->
         <!-- notice! headerToolbar will overwrite headerText property -->
         <headerToolbar>
             <Toolbar>
-            	<Title text="{i18n>invoiceListTitle}wt24" />
-            	<ToolbarSpacer/>
-            	<SearchField width="50%" search="onFilterInvoice"  />
+                <Title text="{i18n>invoiceListTitle}wt24" />
+                <ToolbarSpacer/>
+                <SearchField width="50%" search="onFilterInvoice" />
             </Toolbar>
         </headerToolbar>
         <items>
