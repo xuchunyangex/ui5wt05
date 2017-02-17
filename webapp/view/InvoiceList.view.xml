@@ -7,11 +7,16 @@
             <!-- more precisely, we use an "ObjectListItem" to create a control for each aggregated child of the items aggregation -->
             <!-- The title property of the list item is bound to properties of a single invoice. This is achieved by defining a relative path 
         	(without / in the beginning). This works because we have bound the items aggregation via items={invoice>/Invoices} to the invoices. -->
+
+        	<!-- wt22 expression binding see below /  "{= ${invoice>ExtendedPrice} > 50 ? 'A' : 'B'}"  / 
+        A model binding inside an expression binding has to be escaped with the $ sign as you can see in the code-->
             <ObjectListItem title="{invoice>Quantity} x {invoice>ProductName}" number="{
             	parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
             	type: 'sap.ui.model.type.Currency',
             	formatOptions: {showMeasure: false}
-            	}" numberUnit="{view>/currency}"> </ObjectListItem>
+            	}" numberUnit="{view>/currency}"
+            	numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"
+            	> </ObjectListItem>
         </items>
     </List>
 </mvc:View>
