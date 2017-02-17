@@ -67,6 +67,10 @@
                 "settings": {
                     "bundleName": "wt05Controllers.i18n.i18n"
                 }
+            },
+            "invoice": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "Invoice.json"
             }
         },
 

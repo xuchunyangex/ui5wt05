@@ -1,0 +1,13 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml">
+	<!-- wt20 aggregation binding 
+	in the "items"  aggregation, we define the template for the list that will be automatically repeated for each invoice
+	of our test data with "items="{xxx}"" -->
+    <List headerText = "{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" with="auto" items="{invoice>/Invoices}" >
+        <items>
+        	<!-- more precisely, we use an "ObjectListItem" to create a control for each aggregated child of the items aggregation -->
+        	<!-- The title property of the list item is bound to properties of a single invoice. This is achieved by defining a relative path 
+        	(without / in the beginning). This works because we have bound the items aggregation via items={invoice>/Invoices} to the invoices. -->
+            <ObjectListItem title="{invoice>Quantity} x {invoice>ProductName}"> </ObjectListItem>
+        </items>
+    </List>
+</mvc:View>

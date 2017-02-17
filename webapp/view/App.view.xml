@@ -8,6 +8,8 @@
                   </headerContent>
                 <content>
                     <mvc:XMLView viewName="wt05Controllers.view.HelloPanel" />
+                    <!-- walkthrough 20 - aggregation binding -->
+                    <mvc:XMLView viewName="wt05Controllers.view.InvoiceList" />
                 </content>
             </Page>
         </pages>
