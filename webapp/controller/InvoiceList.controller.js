@@ -1,13 +1,16 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-    "../model/formatter"
-], function(Controller, JSONModel, formatter) {
+    "../model/formatter",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator"
+
+], function(Controller, JSONModel, formatter, Filter, FilterOperator) {
     "use strict";
 
     return Controller.extend("wt05Controllers.controller.InvoiceList", {
-    	//wt23, custom formatter, define a function property, no arguments 
-    	formatter1: formatter,
+        //wt23, custom formatter, define a function property, no arguments 
+        formatter1: formatter,
         /**
          * Called when a controller is instantiated and its View controls (if available) are already created.
          * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
@@ -20,6 +23,25 @@ sap.ui.define([
 
             this.getView().setModel(oViewModel, "view");
         },
+        //wt24 filtering
+        onFilterInvoice: function(oEvent) {
+            //1.build filter array
+            var aFilter = [];
+            //2.sQuery is the string user inputs in the searchField
+            var sQuery = oEvent.getParameter("query");
+            //3.build sQuery filter operator - e.g. contains
+            if (sQuery) {
+                aFilter.push(new Filter("ProductName", FilterOperator.Contains, sQuery));
+            }
+
+            //filter binding
+            //4.get the invoiceList control
+            var oList = this.getView().byId("invoiceList");
+            //5.get binding of items in the list
+            var oBinding = oList.getBinding("items");
+            //6.call filter
+            oBinding.filter(aFilter);
+        }
 
         /**
          * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

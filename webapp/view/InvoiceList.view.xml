@@ -2,7 +2,16 @@
     <!-- wt20 aggregation binding 
 	in the "items"  aggregation, we define the template for the list that will be automatically repeated for each invoice
 	of our test data with "items="{xxx}"" -->
-    <List headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto" items="{invoice>/Invoices}">
+    <List id="invoiceList" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto" items="{invoice>/Invoices}">
+        <!-- wt24 filtering -->
+        <!-- notice! headerToolbar will overwrite headerText property -->
+        <headerToolbar>
+            <Toolbar>
+            	<Title text="{i18n>invoiceListTitle}wt24" />
+            	<ToolbarSpacer/>
+            	<SearchField width="50%" search="onFilterInvoice"  />
+            </Toolbar>
+        </headerToolbar>
         <items>
             <!-- more precisely, we use an "ObjectListItem" to create a control for each aggregated child of the items aggregation -->
             <!-- The title property of the list item is bound to properties of a single invoice. This is achieved by defining a relative path 
@@ -15,7 +24,7 @@
             	formatOptions: {showMeasure: false}
             	}" numberUnit="{view>/currency}" numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }">
                 <firstStatus>
-                	<!-- A "." in front of the formatter name means that the function is looked up in the controller of the current view. -->
+                    <!-- A "." in front of the formatter name means that the function is looked up in the controller of the current view. -->
                     <ObjectStatus text="{
             		path: 'invoice>Status',
             		formatter: '.formatter1.statusText'
