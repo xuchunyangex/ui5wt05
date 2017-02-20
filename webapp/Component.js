@@ -6,7 +6,7 @@ sap.ui.define([
     //wt19 reusable dialog
     "wt05Controllers/controller/HelloDialog",
     //wt09 component configuration, and add these two to function arguments
-    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/json/JSONModel"
     // "sap/ui/model/resource/ResourceModel"
     // ], function(UIComponent, Device, models, JSONModel, ResourceModel) {
 ], function(UIComponent, Device, models, HelloDialog, JSONModel) {
