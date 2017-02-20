@@ -18,7 +18,7 @@
         "ach": "CA-UI5-DOC",
         "dataSources": {
             "invoiceRemote": {
-                "uri": "http://services.odata.org/V2/Northwind/Northwind.svc/",
+                "uri": "/destinations/northwind/V2/Northwind/Northwind.svc/",
                 "type": "OData",
                 "settings": {
                     "odataVersion": "2.0"
