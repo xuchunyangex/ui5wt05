@@ -1,3 +1,6 @@
+/*global QUnit*/
+/*global opaTest*/
+
 sap.ui.define([
 	"sap/ui/test/opaQunit"
 ], function(opaTest) {
@@ -7,7 +10,7 @@ sap.ui.define([
 
 	opaTest("Should open the hello dialog", function(Given, When, Then) {
 		// Arrangements
-		Given.iStartMyAppInAFrame();
+		Given.iStartMyAppInAFrame(jQuery.sap.getResourcePath("wt05Controllers/test", ".html"));
 		
 		// Actions
 		When.onTheAppPage.iPressTheSayHelloWithDialogButton();
