@@ -51,7 +51,10 @@ sap.ui.define([
             //     bundleName: "wt05Controllers.i18n.i18n"
             // });
             // this.setModel(i18nModel, "i18n");
-
+			
+			//wt31 routing and navigation
+			//ccreate the views based on the url/hash
+			this.getRouter().initialize();
         },
 
         //wt19 

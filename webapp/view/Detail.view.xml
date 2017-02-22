@@ -1,0 +1,6 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="wt05Controllers.controller.Detail"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+			<Page title="i18n>detailPageTitle">
+				<ObjectHeader title="i18n>InvoiceDes"> </ObjectHeader>
+			</Page>
+</mvc:View>

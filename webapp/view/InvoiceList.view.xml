@@ -1,35 +1,36 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="wt05Controllers.controller.InvoiceList" xmlns:html="http://www.w3.org/1999/xhtml">
-    <!-- wt20 aggregation binding 
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="wt05Controllers.controller.InvoiceList"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<!-- wt20 aggregation binding 
 	in the "items"  aggregation, we define the template for the list that will be automatically repeated for each invoice
 	of our test data with "items="{xxx}"" -->
-    <List id="invoiceList" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto" items="{path: 'invoice>/Invoices', sorter: {path: 'ShipperName', group: true}}">
-        <!-- wt24 filtering -->
-        <!-- notice! headerToolbar will overwrite headerText property -->
-        <headerToolbar>
-            <Toolbar>
-                <Title text="{i18n>invoiceListTitle}wt24" />
-                <ToolbarSpacer/>
-                <SearchField width="50%" search="onFilterInvoice" />
-            </Toolbar>
-        </headerToolbar>
-        <items>
-            <!-- more precisely, we use an "ObjectListItem" to create a control for each aggregated child of the items aggregation -->
-            <!-- The title property of the list item is bound to properties of a single invoice. This is achieved by defining a relative path 
+	<List id="invoiceList" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto"
+		items="{path: 'invoice>/Invoices', sorter: {path: 'ShipperName', group: true}}">
+		<!-- wt24 filtering -->
+		<!-- notice! headerToolbar will overwrite headerText property -->
+		<headerToolbar>
+			<Toolbar>
+				<Title text="{i18n>invoiceListTitle}wt24"/>
+				<ToolbarSpacer/>
+				<SearchField width="50%" search="onFilterInvoice"/>
+			</Toolbar>
+		</headerToolbar>
+		<items>
+			<!-- more precisely, we use an "ObjectListItem" to create a control for each aggregated child of the items aggregation -->
+			<!-- The title property of the list item is bound to properties of a single invoice. This is achieved by defining a relative path 
         	(without / in the beginning). This works because we have bound the items aggregation via items={invoice>/Invoices} to the invoices. -->
-            <!-- wt22 expression binding see below /  "{= ${invoice>ExtendedPrice} > 50 ? 'A' : 'B'}"  / 
+			<!-- wt22 expression binding see below /  "{= ${invoice>ExtendedPrice} > 50 ? 'A' : 'B'}"  / 
         A model binding inside an expression binding has to be escaped with the $ sign as you can see in the code-->
-            <ObjectListItem title="{invoice>Quantity} x {invoice>ProductName}" number="{
-            	parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
-            	type: 'sap.ui.model.type.Currency',
-            	formatOptions: {showMeasure: false}
-            	}" numberUnit="{view>/currency}" numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }">
-                <firstStatus>
-                    <!-- A "." in front of the formatter name means that the function is looked up in the controller of the current view. -->
-                    <ObjectStatus text="{
-            		path: 'invoice>Status',
-            		formatter: '.formatter1.statusText'
-            		}" /> </firstStatus>
-            </ObjectListItem>
-        </items>
-    </List>
+			<ObjectListItem title="{invoice>Quantity} x {invoice>ProductName}"
+				number="{ parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"
+				numberUnit="{view>/currency}" numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"
+				type="Navigation"
+				press="onPress"
+				>
+				<firstStatus>
+					<!-- A "." in front of the formatter name means that the function is looked up in the controller of the current view. -->
+					<ObjectStatus text="{ path: 'invoice>Status', formatter: '.formatter1.statusText' }"/>
+				</firstStatus>
+			</ObjectListItem>
+		</items>
+	</List>
 </mvc:View>
