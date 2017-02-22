@@ -44,8 +44,16 @@ sap.ui.define([
 		},
 
 		onPress: function(oEvent) {
+			//wt32 routing with parameters
+			//The control instance that has been interacted with can be accessed by the getSource method that is available for all SAPUI5 events. 
+			//It will return the ObjectListItem that has been clicked in our case. 
+			var oItem = oEvent.getSource();
+
+
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			oRouter.navTo("detail");
+			oRouter.navTo("detail", {
+				invoicePath: oItem.getBindingContext("invoice").getPath().substr(1)
+			});
 		}
 
 		/**
