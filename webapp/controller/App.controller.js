@@ -8,7 +8,7 @@ sap.ui.define([
     // "sap/ui/model/resource/ResourceModel"
 
     // wt06: Above here, add control names, they can be used in code directly below
-], function(Controller, MessageToast, JSONModel, ResourceModel) {
+], function(Controller) {
     "use strict";
 
     return Controller.extend("wt05Controllers.controller.App", {
