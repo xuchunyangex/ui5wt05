@@ -1,6 +1,7 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-], function(Controller) {
+    "sap/ui/core/routing/History"
+], function(Controller, History) {
     "use strict";
 
     return Controller.extend("wt05Controllers.controller.Detail", {
@@ -16,6 +17,20 @@ sap.ui.define([
     			path: "/" + oEvent.getParameter("arguments").invoicePath, 
     			model: "invoice"
     		});
+    	},
+
+    	onNavBack: function () {
+    		// wt33 routing back and history
+    		var oHistory = History.getInstance();
+    		var sPreviousHash = oHistory.getPreviousHash();
+
+    		if (sPreviousHash !== undefined) {
+    			window.history.go(-1);
+    		} else {
+    			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+    			oRouter.navTo("overview", {}, true);
+    		}
+
     	}
     });
 
