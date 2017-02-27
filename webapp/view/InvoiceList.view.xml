@@ -3,7 +3,7 @@
 	<!-- wt20 aggregation binding 
 	in the "items"  aggregation, we define the template for the list that will be automatically repeated for each invoice
 	of our test data with "items="{xxx}"" -->
-	<List id="invoiceList" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto"
+	<Table id="invoiceList" headerText="{i18n>invoiceListTitle}" class="sapUiResponsiveMargin" width="auto"
 		items="{path: 'invoice>/Invoices', sorter: {path: 'ShipperName', group: true}}">
 		<!-- wt24 filtering -->
 		<!-- notice! headerToolbar will overwrite headerText property -->
@@ -14,23 +14,50 @@
 				<SearchField width="50%" search="onFilterInvoice"/>
 			</Toolbar>
 		</headerToolbar>
+		<columns>
+			<Column hAlign="End" minScreenWidth="Small" demandPopin="true" width="4em">
+				<Text text="{i18n>columnQuantity}"/>
+			</Column>
+			<Column >
+				<Text text="{i18n>columnName}"></Text>
+			</Column>
+			<Column minScreenWidth="Small" demandPopin="true">
+				<Text text="{i18n>columnStatus}"></Text>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="false">
+				<Text text="{i18n>columnSupplier}"/>
+			</Column>
+			<Column hAlign="End">
+				<Text text="{i18n>columnPrice}"/>
+			</Column>
+		</columns>
 		<items>
+			<!--wt35 table with column-->
+			<ColumnListItem type="Navigation" press="onPress">
+				<cells>
+					<ObjectNumber number="{invoice>Quantity}" emphasized="true"/>
+					<ObjectIdentifier title="{invoice>ProductName}"/>
+					<Text text="{ path: 'invoice>Status', formatter: '.formatter1.statusText' }"/>
+					<Text text="{invoice>ShipperName}"/>
+					<ObjectNumber
+						number="{ parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
+						unit="{view>/currency}" state="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"/>
+				</cells>
+			</ColumnListItem>
 			<!-- more precisely, we use an "ObjectListItem" to create a control for each aggregated child of the items aggregation -->
 			<!-- The title property of the list item is bound to properties of a single invoice. This is achieved by defining a relative path 
         	(without / in the beginning). This works because we have bound the items aggregation via items={invoice>/Invoices} to the invoices. -->
+			
 			<!-- wt22 expression binding see below /  "{= ${invoice>ExtendedPrice} > 50 ? 'A' : 'B'}"  / 
         A model binding inside an expression binding has to be escaped with the $ sign as you can see in the code-->
-			<ObjectListItem title="{invoice>Quantity} x {invoice>ProductName}"
-				number="{ parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"
-				numberUnit="{view>/currency}" numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }"
-				type="Navigation"
-				press="onPress"
-				>
-				<firstStatus>
-					<!-- A "." in front of the formatter name means that the function is looked up in the controller of the current view. -->
-					<ObjectStatus text="{ path: 'invoice>Status', formatter: '.formatter1.statusText' }"/>
-				</firstStatus>
-			</ObjectListItem>
+			<!--<ObjectListItem title="{invoice>Quantity} x {invoice>ProductName}"-->
+			<!--	number="{ parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"-->
+			<!--	numberUnit="{view>/currency}" numberState="{= ${invoice>ExtendedPrice} > 50 ? 'Error' : 'Success' }" type="Navigation" press="onPress">-->
+			<!--	<firstStatus>-->
+			<!-- A "." in front of the formatter name means that the function is looked up in the controller of the current view. -->
+			<!--		<ObjectStatus text="{ path: 'invoice>Status', formatter: '.formatter1.statusText' }"/>-->
+			<!--	</firstStatus>-->
+			<!--</ObjectListItem>-->
 		</items>
-	</List>
+	</Table>
 </mvc:View>
