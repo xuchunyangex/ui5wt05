@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/routing/History"
-], function(Controller, History) {
+    "sap/ui/core/routing/History",
+    "sap/m/MessageToast"
+], function(Controller, History, MessageToast) {
     "use strict";
 
     return Controller.extend("wt05Controllers.controller.Detail", {
@@ -31,7 +32,16 @@ sap.ui.define([
     			oRouter.navTo("overview", {}, true);
     		}
 
-    	}
+    	},
+
+        //oEvent is the event "change" submitted by _onSubmit in control JS
+        onRatingChange : function (oEvent) {
+            // body...
+            var fValue = oEvent.getParameter("value");
+            var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+            MessageToast.show(oResourceBundle.getText("ratingConfirmation", [fValue]));
+        }
+
     });
 
 });
