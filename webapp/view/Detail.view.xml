@@ -1,7 +1,16 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="wt05Controllers.controller.Detail"
-	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:wt="wt05Controllers.control" >
-			<Page title="{i18n>detailPageTitle}" showNavButton="true" navButtonPress="onNavBack" >
-				<ObjectHeader intro="{invoice>ShipperName}" title="{invoice>ProductName}"> </ObjectHeader>
-				<wt:ProductRating class="sapUiSmallMarginBeginEnd" change="onRatingChange"> </wt:ProductRating>
-			</Page>
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="wt05Controllers.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:wt="wt05Controllers.control">
+    <Page title="{i18n>detailPageTitle}" showNavButton="true" navButtonPress="onNavBack">
+        <ObjectHeader responsive="true" fullScreenOptimized="true" number="{
+					parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+					type: 'sap.ui.model.type.Currency',
+					formatOptions: {showMeasure: false}
+					}" numberUnit="{view>/currency}" intro="{invoice>ShipperName}" title="{invoice>ProductName}">
+            <attributes>
+                <ObjectAttribute title="{i18n>quantityTitle}" text="{invoice>Quantity}"></ObjectAttribute>
+                <ObjectAttribute title="{i18n>dateTitle}" text="{path: 'invoice>ShippedDate', type: 'sap.ui.model.type.Date', formatOptions: {style: 'long', source: {pattern: 'yyyy-MM-ddTHH:mm:ss'}} }">
+                </ObjectAttribute>
+            </attributes>
+        </ObjectHeader>
+        <wt:ProductRating class="sapUiSmallMarginBeginEnd" change="onRatingChange"> </wt:ProductRating>
+    </Page>
 </mvc:View>
