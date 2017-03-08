@@ -12,6 +12,11 @@ sap.ui.define([
     "use strict";
 
     return Controller.extend("wt05Controllers.controller.App", {
+        //wt37 content density - add style class to whole app
+        onInit: function () {
+            // body...
+            this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
+        },
         //wt19 reusable dialog
         onOpenDialog : function () {
             this.getOwnerComponent().openHelloDialog();

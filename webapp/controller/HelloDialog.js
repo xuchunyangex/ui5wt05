@@ -24,6 +24,11 @@ sap.ui.define([
             	//which includes the needed event handler function onCloseFialog for the fragment
             	oDialog = sap.ui.xmlfragment(oView.getId(), "wt05Controllers.view.HelloDialog", oFragmentController);
             	oView.addDependent(oDialog);
+
+                //wt37 content density
+                //forward compact/cozy style into dialog
+                jQuery.sap.syncStyleClass(oView.getController().getOwnerComponent().getContentDensityClass(), oView, oDialog);
+
             }
             oDialog.open();
         },

@@ -51,14 +51,24 @@ sap.ui.define([
             //     bundleName: "wt05Controllers.i18n.i18n"
             // });
             // this.setModel(i18nModel, "i18n");
-			
-			//wt31 routing and navigation
-			//ccreate the views based on the url/hash
-			this.getRouter().initialize();
+
+            //wt31 routing and navigation
+            //ccreate the views based on the url/hash
+            this.getRouter().initialize();
+        },
+
+        //wt37 content density
+        getContentDensityClass: function() {
+            // body...
+            if (!this._sContentDensityClass) {
+                if (!sap.ui.Device.support.touch) {
+                    this._sContentDensityClass = "sapUiSizeCompact";
+                } else { this._sContentDensityClass = "sapUiSizeCozy"; }
+            }
         },
 
         //wt19 
-        openHelloDialog : function () {
+            openHelloDialog: function() {
             this._helloDialog.open();
         }
 
